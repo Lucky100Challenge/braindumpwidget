@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Brain Dump Widget</title>
+    <style>
+      body {
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .card {
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .btn-dark-gray {
+        background-color: #4b5563; /* Tailwind's gray-700 */
+        color: #fff;
+      }
+      .btn-dark-gray:hover {
+        background-color: #6b7280; /* Tailwind's gray-500 */
+      }
+      .btn-light-gray {
+        background-color: #d1d5db; /* Tailwind's gray-300 */
+        color: #000;
+      }
+      .btn-light-gray:hover {
+        background-color: #e5e7eb; /* Tailwind's gray-200 */
+      }
+      .btn-transparent {
+        background-color: transparent;
+        color: #000;
+      }
+      .btn-transparent:hover {
+        background-color: #4b5563; /* Tailwind's gray-700 */
+        color: #fff;
+      }
+      .dark-mode .btn-transparent {
+        color: #fff;
+      }
+      .dark-mode .btn-transparent:hover {
+        background-color: #6b7280; /* Tailwind's gray-500 */
+      }
+      .dark-mode .card {
+        background-color: #1f2937; /* Tailwind's gray-800 */
+        color: #fff;
+      }
+      .light-mode .card {
+        background-color: #f9fafb; /* Tailwind's gray-50 */
+        color: #000;
+      }
+      .dark-mode body {
+        background-color: #111827; /* Tailwind's gray-900 */
+        color: #fff;
+      }
+      .light-mode body {
+        background-color: #f9fafb; /* Tailwind's gray-50 */
+        color: #000;
+      }
+      .toggle-btn {
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        font-size: 1.5rem; /* Adjust font size as needed */
+      }
+      .dark-mode .toggle-btn {
+        color: #fff;
+      }
+      .light-mode .toggle-btn {
+        color: #000;
+      }
+      .close-btn {
+        cursor: pointer;
+        color: #f87171; /* Tailwind's red-400 */
+      }
+      .close-btn:hover {
+        color: #ef4444; /* Tailwind's red-500 */
+      }
+      .header-dark {
+        color: #fff; /* White text for dark mode */
+      }
+      .header-light {
+        color: #000; /* Black text for light mode */
+      }
+      .dark-mode textarea {
+        color: #000; /* Ensure textarea text is always black */
+      }
+
+      .dark-mode .fa-moon {
+        color: black;
+      }
+    </style>
+  </head>
+  <body class="light-mode">
+    <div class="p-4 max-w-lg mx-auto">
+      <div
+        class="card p-4 mb-4 border border-gray-300 rounded-md shadow-md relative"
+      >
+        <button
+          id="toggleMode"
+          class="absolute top-2 right-2 toggle-btn bg-gray-200 px-4 py-2 rounded-md"
+        >
+          <i id="icon" class="fas fa-sun"></i>
+        </button>
+        <h1 id="header" class="text-2xl font-bold mb-4 header-light">
+          Brain Dump
+        </h1>
+        <textarea
+          id="inputArea"
+          rows="5"
+          class="w-full p-2 border border-gray-300 rounded-md mb-4"
+          placeholder="Write your thoughts here..."
+        ></textarea>
+        <div class="flex space-x-4 mb-4">
+          <button
+            id="addButton"
+            class="btn-dark-gray px-4 py-2 rounded-md text-sm font-medium"
+          >
+            Add
+          </button>
+          <button
+            id="clearButton"
+            class="btn-transparent px-4 py-2 rounded-md text-sm font-medium"
+          >
+            Clear
+          </button>
+        </div>
+        <div id="logContainer" class="space-y-4">
+          <!-- Entries will be appended here -->
+        </div>
+      </div>
+    </div>
+    <script src="brain-dump.js"></script>
+  </body>
+</html>
